@@ -3,9 +3,34 @@ import Loading from './Loading'
 import Tours from './Tours'
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
+
 const url = 'https://course-api.com/react-tours-project'
 function App() {
-  return <h2>Tours Project Setup</h2>
+  const [loading, setLoading] = useState(true)
+  const [tours, setTours] = useState([])
+
+  const fetchTours = async () => {
+    try{
+      const response = await fetch(url)
+      const tours = await response.json();
+      setLoading(false)
+      setTours(tours)
+    }
+    catch(error){
+      setLoading(false)
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchTours()
+  }, [])
+
+  return (
+    <main>
+      {loading ? <h1><Loading/></h1> : <h1><Tours tours={tours}/></h1>}\
+    </main>
+  )
 }
 
 export default App
