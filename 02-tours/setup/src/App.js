@@ -28,7 +28,7 @@ function App() {
 
   return (
     <main>
-      {loading ? <h1><Loading/></h1> : <h1><Tours tours={tours}/></h1>}\
+      {loading ? <h1><Loading/></h1> : <h1><Tours tours={tours}/></h1>}
     </main>
   )
 }
