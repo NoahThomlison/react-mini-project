@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tour from './Tour';
 const Tours = ({tours}) => {
+  const [readMore, setReadMore] = useState(false)
+ 
   return (
   <section>
     <div className='title'>
@@ -9,10 +11,8 @@ const Tours = ({tours}) => {
     </div> 
     <div>
       {tours.map((tour) => {
-
       return(<Tour key={tour.id} {...tour}></Tour>)
       }
-
       )}
     </div>
   </section>
