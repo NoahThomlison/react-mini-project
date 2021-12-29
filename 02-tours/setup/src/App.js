@@ -31,9 +31,25 @@ function App() {
     fetchTours()
   }, [])
 
+
+  if(loading) {
+    return(
+      <h1><Loading/></h1>
+    )
+  }
+
+  if(tours.length === 0){
+    return(
+      <div className="title">
+        <h2>No Tours Left</h2>
+        <button className="btn"onClick={() => fetchTours()}>Refresh</button>
+      </div>
+    )
+  }
+
   return (
     <main>
-      {loading ? <h1><Loading/></h1> : <h1><Tours tours={tours} removeTour={removeTour}/></h1>}
+      <h1><Tours tours={tours} removeTour={removeTour}/></h1>
     </main>
   )
 }
