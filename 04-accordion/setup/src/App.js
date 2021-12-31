@@ -5,16 +5,14 @@ import SingleQuestion from './Question';
 function App() {
   return (
     <main>
-      <section className="container">
-        <div>
+      <div className="container">
           <h3>Questions And Answers About Login</h3>
+          <section className='info'>
+            {data.map(question => 
+              <SingleQuestion key={question.id} {...question}/>
+            )}
+        </section>
         </div>
-        <div>
-        {data.map(question => 
-          <SingleQuestion question={question}/>
-        )}
-        </div>
-      </section>
     </main>
   )  
 }
