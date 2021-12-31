@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 const Question = ( props ) => {
-  const { question: { id, info, title }} = props;
+  const { id, info, title } = props;
   const [expanded, setExpanded] = useState(false)
 
   const toggleExpaned = () => {
@@ -10,12 +10,12 @@ const Question = ( props ) => {
 
   return (
     <div className='question'>
-      <div>
-        <h4>{title}</h4>
+      <header>
+      <h4>{title}</h4>
         <button className='btn' onClick={() => toggleExpaned()}>
         {expanded ? <AiOutlineMinus/> : <AiOutlinePlus/>}
         </button>
-      </div>
+      </header> 
       {expanded ? <p>{info}</p> : <p></p>}
     </div>
   )
