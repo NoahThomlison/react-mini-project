@@ -6,19 +6,19 @@ const Review = (props) => {
 
     const [index, setIndex] = useState(0)
     const {id, name, job, image, text} = people[index]
-    console.log(id)
-    const next = (id) => {
-      if(id + 1 > index.length){
+
+    const next = (index) => {
+      if(index + 1 > people.length - 1){
         return(0)
       }
-      return(id)
+      return(index+1)
     }
   
-    const previous = (id) => {
-      if(id - 1 < 1){
-        return(index.length - 1)
+    const previous = (index) => {
+      if(index - 1 < 0){
+        return(people.length-1)
       }
-      return(id-2)
+      return(index-1)
     }
 
   return (
@@ -33,10 +33,10 @@ const Review = (props) => {
       <p className='job'>{job}</p>
       <p className='info'>{text}</p>
       <div className='button-container'>
-        <button className="prev-btn" onClick={() => setIndex(people[previous(index.id)])}><FaChevronLeft/></button>
-        <button className="random-btn" onClick={() => setIndex(people[Math.floor(Math.random() * index.length)])}>Random</button>
-        <button className="next-btn"  onClick={() => setIndex(people[next(index.id)])}><FaChevronRight/></button>
+        <button className="prev-btn" onClick={() => setIndex(previous(index))}><FaChevronLeft/></button>
+        <button className="next-btn"  onClick={() => setIndex(next(index))}><FaChevronRight/></button>
       </div>
+      <button className="random-btn" onClick={() => setIndex(Math.floor(Math.random() * people.length))}>Random</button>
     </article>
   )
 };
