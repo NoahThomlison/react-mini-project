@@ -21,6 +21,14 @@ const Review = (props) => {
       return(index-1)
     }
 
+    const setRandom = () => {
+      let newIndex = (Math.floor(Math.random() * people.length))
+      if(newIndex == index){
+        newIndex = (Math.floor(Math.random() * people.length))
+      }
+      setIndex(newIndex)
+    }
+
   return (
     <article className='review'>
       <div className="img-container">
@@ -36,7 +44,7 @@ const Review = (props) => {
         <button className="prev-btn" onClick={() => setIndex(previous(index))}><FaChevronLeft/></button>
         <button className="next-btn"  onClick={() => setIndex(next(index))}><FaChevronRight/></button>
       </div>
-      <button className="random-btn" onClick={() => setIndex(Math.floor(Math.random() * people.length))}>Random</button>
+      <button className="random-btn" onClick={() => setRandom()}>Random</button>
     </article>
   )
 };
