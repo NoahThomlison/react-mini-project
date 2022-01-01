@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Categories = (props) => {
+const Categories = ({category, changeType}) => {
+
   return (
-    <button className='filter-btn'>{props.catagory}</button>
+    <button className='filter-btn' onClick={() => changeType(category)}>{category}</button>
   )
 };
 
