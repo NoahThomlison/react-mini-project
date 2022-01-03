@@ -17,6 +17,18 @@ function App() {
     setMenu(newItems)
   }
 
+  const categoryFinder = (items) => {
+    const categories = []
+    items.forEach(item => {
+        if(!categories.includes(item.category)){
+          categories.push(item.category)
+        }
+    });
+    return(categories)
+  }
+
+  const categories = categoryFinder(items)
+
   return (
     <main>
       <header className='title'>
@@ -24,12 +36,10 @@ function App() {
         <div className='underline'></div>
       </header>
       <section className='btn-container'>
-        <Categories changeType={changeType} category="all"/>
-        <Categories changeType={changeType} category="breakfast"/>
-        <Categories changeType={changeType} category="lunch"/>
-        <Categories changeType={changeType} category="shakes"/>
+        <Categories key={99} changeType={changeType} category="all"/>
+        {categories.map((item) => 
+          <Categories key={categories.indexOf(item)} changeType={changeType} category={item}/>)}
       </section>
-
       <section className='section-center'>
         <Menu items={menu} filter={filter}/>
       </section>
