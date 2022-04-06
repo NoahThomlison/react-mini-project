@@ -11,7 +11,7 @@ A collection of mini projects to practice React techniques including useState, u
 ![](https://github.com/NoahThomlison/react-mini-project/blob/main/gifs/MiniProject%20-%20Accordion.gif?raw=true)
 
 ### Menu
-![](https://github.com/NoahThomlison/react-mini-project/blob/main/gifs/MiniProject%20-%20Menu.gifraw=true)
+![](https://github.com/NoahThomlison/react-mini-project/blob/main/gifs/MiniProject%20-%20Menu.gif?(raw=true)
 
 ### Tabs
 ![](https://github.com/NoahThomlison/react-mini-project/blob/main/gifs/MiniProject%20-%20Tab.gif?raw=true)
