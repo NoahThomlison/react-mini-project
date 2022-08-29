@@ -12,6 +12,7 @@ function App() {
     event.preventDefault()
     try{
       let colors = new Values(color).all(10)
+      setError(false)
       console.log(colors)
     }
     catch(error){
