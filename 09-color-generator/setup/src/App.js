@@ -12,6 +12,7 @@ function App() {
     event.preventDefault()
     try{
       let colors = new Values(color).all(10)
+      setList(colors)
       setError(false)
       console.log(colors)
     }
@@ -36,7 +37,9 @@ function App() {
     </form>
   </section>
   <section className='colors'> 
-    <h4>List goes heere</h4> 
+    {list.map((color, index) => {
+      return <SingleColor key={index} {...color} index={index}></SingleColor>
+    })}
   </section>
   </>
   )}
