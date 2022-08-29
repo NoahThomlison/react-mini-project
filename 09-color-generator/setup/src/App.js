@@ -10,12 +10,20 @@ function App() {
 
   const handleSubmit = (event) =>{
     event.preventDefault()
-    console.log("Hello")
+    try{
+      let colors = new Values(color).all(10)
+      console.log(colors)
+    }
+    catch(error){
+      setError(true)
+      console.log(error)
+    }
   }
 
   return (
     <>
   <section className='container'>
+    <h3>Color Generator</h3>
     <form onSubmit={handleSubmit}>
       <input 
       type="text" 
