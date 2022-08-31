@@ -5,10 +5,18 @@ import Alert from './Alert'
 function App() {
   const [groceryList, setGroceryList] = useState([])
   const [groceryItem, setGroceryItem] = useState("")
+  const [isEditing, setIsEditing] = useState(false)
+  const [editId, setEditId] = useState(null)
+  const [alert, setAlert] = useState({
+    show: false,
+    msg: "",
+    type: ""
+  })
 
   const onSubmit = (e) => {
     e.preventDefault()
     setGroceryList([...groceryList, groceryItem])
+    setGroceryList("")
   }
 
   return (
