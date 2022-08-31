@@ -22,7 +22,7 @@ function App() {
       })
     }
     else if(groceryItem && isEditing){
-
+      setIsEditing(true)
     }
     else{
       setAlert(prevState => {
@@ -37,7 +37,7 @@ function App() {
   return (
     <section className='section-center'>
       <form action="" className="grocery-form" onSubmit={submitHandler}>
-        {alert.show && <Alert alert={alert}/>}
+        {alert.show && <Alert {...alert}/>}
         <h3>Grocery Bud</h3>
         <div className='form-control'>
           <input className="grocery" value={groceryItem} onChange={(e) => setGroceryItem(e.target.value)} type="text" placeholder='e.g. eggs' />
