@@ -47,13 +47,8 @@ function App() {
 
   const removeItem = (id) => {
     setAlert({show: true, msg: "Item Removed", type: "alert-danger"})
-    const list = [...groceryList]
-    list.forEach((item) => {
-      if(item.id === id){
-        list.splice(list.indexOf(item), 1)
-      }
-    })
-    setGroceryList(list)
+    setGroceryList(groceryList.filter((item) => item.id !== id))
+
   }
 
   return (
