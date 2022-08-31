@@ -18,10 +18,16 @@ function App() {
     if(!groceryItem){
       console.log("ding")
       setAlert(prevState => {
-        return {...prevState, show: true};
+        return {...prevState, show: true, msg: "No Item Added", type: "alert-success"};
       })
     }
-    else if(groceryItem){
+    else if(groceryItem && isEditing){
+
+    }
+    else{
+      setAlert(prevState => {
+        return {...prevState, show: true, msg: "Item Added", type: 'alert-danger'};
+      })
       setGroceryList([...groceryList, groceryItem])
       setGroceryItem("")
     }
@@ -30,7 +36,7 @@ function App() {
   return (
     <section className='section-center'>
       <form action="" className="grocery-form" onSubmit={submitHandler}>
-        {alert.show && <Alert/>}
+        {alert.show && <Alert alert={alert}/>}
         <h3>Grocery Bud</h3>
         <div className='form-control'>
           <input className="grocery" value={groceryItem} onChange={(e) => setGroceryItem(e.target.value)} type="text" placeholder='e.g. eggs' />
