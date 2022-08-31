@@ -13,19 +13,27 @@ function App() {
     type: ""
   })
 
-  const onSubmit = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault()
     setGroceryList([...groceryList, groceryItem])
-    setGroceryList("")
+    setGroceryItem("")
   }
 
   return (
-    <article>
-      <h2>Grocery Bud</h2>
-      <input value={groceryItem} onChange={(e) => setGroceryItem(e.target.value)} type="text" placeholder='e.g. eggs' />
-      <button onClick={(e) => onSubmit(e)}>Submit</button>
-      <List groceryList={groceryList}></List>
-    </article>
+    <section className='section-center'>
+      <form action="" className="grocery-form" onSubmit={submitHandler}>
+        {alert.show && <Alert/>}
+        <h3>Grocery Bud</h3>
+        <div className='form-control'>
+          <input className="grocery" value={groceryItem} onChange={(e) => setGroceryItem(e.target.value)} type="text" placeholder='e.g. eggs' />
+          <button type='submit' className='submit-btn'>{isEditing ? 'Edit' : 'Submit'}</button>
+        </div>
+      </form>
+      <div className='grocery-container'>
+        <List groceryList={groceryList}></List>
+        <button className='clear-btn'>Clear Items</button> 
+      </div>
+    </section>
   )
 }
 
