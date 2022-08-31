@@ -44,10 +44,12 @@ function App() {
           <button type='submit' className='submit-btn'>{isEditing ? 'Edit' : 'Submit'}</button>
         </div>
       </form>
-      <div className='grocery-container'>
-        <List groceryList={groceryList}></List>
-        <button className='clear-btn'>Clear Items</button> 
-      </div>
+      {groceryList.length > 0 && (
+        <div className='grocery-container'>
+        < List groceryList={groceryList}></List>
+          <button className='clear-btn'>Clear Items</button> 
+        </div>
+      )}
     </section>
   )
 }
