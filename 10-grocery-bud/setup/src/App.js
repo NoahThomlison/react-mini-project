@@ -17,21 +17,26 @@ function App() {
     e.preventDefault()
     if(!groceryItem){
       console.log("ding")
-      setAlert(prevState => {
-        return {...prevState, show: true, msg: "No Item Added", type: "alert-danger"};
-      })
+      setAlert({show: true, msg: "Please enter value", type: "alert-danger"})
+      alertTimer()
     }
     else if(groceryItem && isEditing){
       setIsEditing(true)
     }
     else{
-      setAlert(prevState => {
-        return {...prevState, show: true, msg: "Item Added", type: 'alert-success'};
-      })
+      setAlert({show: true, msg: "Item Added", type: "alert-success"})
+      alertTimer()
       const newGroceryItem = {id: Math.floor(Math.random() * 1000), item: groceryItem}
       setGroceryList([...groceryList, newGroceryItem])
       setGroceryItem("")
     }
+  }
+
+  const alertTimer = () => {
+    const timer = setTimeout(() => {
+      setAlert({show: false, msg: "", type: ""})
+    },  3000);
+    return () => clearTimeout(timer)
   }
 
   return (
