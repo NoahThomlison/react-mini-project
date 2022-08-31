@@ -16,8 +16,10 @@ function App() {
       <h2>Grocery Bud</h2>
       <input value={groceryItem} onChange={(e) => setGroceryItem(e.target.value)} type="text" placeholder='e.g. eggs' />
       <button onClick={(e) => onSubmit(e)}>Submit</button>
+      <List groceryList={groceryList}></List>
     </article>
   )
 }
 
 export default App
+
