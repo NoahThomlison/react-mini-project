@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react'
 import List from './List'
 import Alert from './Alert'
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('groceryList')
+  return(list ? JSON.parse(list) : [])
+}
+
 function App() {
-  const [groceryList, setGroceryList] = useState([])
   const [groceryItem, setGroceryItem] = useState("")
+  const [groceryList, setGroceryList] = useState(getLocalStorage())
   const [isEditing, setIsEditing] = useState(false)
   const [editId, setEditId] = useState(null)
   const [alert, setAlert] = useState({
@@ -12,6 +17,11 @@ function App() {
     msg: "",
     type: ""
   })
+
+  useEffect(() => {
+    console.log(groceryList)
+    localStorage.setItem('groceryList', JSON.stringify(groceryList))
+  }, [groceryList])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -29,6 +39,9 @@ function App() {
       }))
       setIsEditing(false)
       setGroceryItem("")
+      setEditId(null)
+      setAlert({show: true, msg: "Value Changed", type: "alert-success"})
+      alertTimer()
     }
     else{
       setAlert({show: true, msg: "Item Added", type: "alert-success"})
