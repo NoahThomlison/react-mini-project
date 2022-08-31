@@ -18,7 +18,7 @@ function App() {
     if(!groceryItem){
       console.log("ding")
       setAlert(prevState => {
-        return {...prevState, show: true, msg: "No Item Added", type: "alert-success"};
+        return {...prevState, show: true, msg: "No Item Added", type: "alert-danger"};
       })
     }
     else if(groceryItem && isEditing){
@@ -26,9 +26,10 @@ function App() {
     }
     else{
       setAlert(prevState => {
-        return {...prevState, show: true, msg: "Item Added", type: 'alert-danger'};
+        return {...prevState, show: true, msg: "Item Added", type: 'alert-success'};
       })
-      setGroceryList([...groceryList, groceryItem])
+      const newGroceryItem = {id: Math.floor(Math.random() * 1000), item: groceryItem}
+      setGroceryList([...groceryList, newGroceryItem])
       setGroceryItem("")
     }
   }
