@@ -39,6 +39,12 @@ function App() {
     return () => clearTimeout(timer)
   }
 
+  const clearList = () => {
+    setAlert({show: true, msg: "List cleared", type: "alert-danger"})
+    alertTimer()
+    setGroceryList([])
+  }
+
   return (
     <section className='section-center'>
       <form action="" className="grocery-form" onSubmit={submitHandler}>
@@ -52,7 +58,7 @@ function App() {
       {groceryList.length > 0 && (
         <div className='grocery-container'>
         < List groceryList={groceryList}></List>
-          <button className='clear-btn'>Clear Items</button> 
+          <button onClick={() => clearList()} className='clear-btn'>Clear Items</button> 
         </div>
       )}
     </section>
