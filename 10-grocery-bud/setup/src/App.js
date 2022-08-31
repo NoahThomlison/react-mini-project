@@ -21,7 +21,14 @@ function App() {
       alertTimer()
     }
     else if(groceryItem && isEditing){
-      setIsEditing(true)
+      setGroceryList(groceryList.map((item) => {
+        if(item.id === editId){
+          return {...item, item: groceryItem}
+        }
+        return item
+      }))
+      setIsEditing(false)
+      setGroceryItem("")
     }
     else{
       setAlert({show: true, msg: "Item Added", type: "alert-success"})
@@ -48,7 +55,14 @@ function App() {
   const removeItem = (id) => {
     setAlert({show: true, msg: "Item Removed", type: "alert-danger"})
     setGroceryList(groceryList.filter((item) => item.id !== id))
+    alertTimer()
+  }
 
+  const editItem = (id) => {
+    const groceryItemToEdit = groceryList.find((item) => item.id === id)
+    setIsEditing(true)
+    setEditId(groceryItemToEdit.id)
+    setGroceryItem(groceryItemToEdit.item)
   }
 
   return (
@@ -63,7 +77,7 @@ function App() {
       </form>
       {groceryList.length > 0 && (
         <div className='grocery-container'>
-        < List groceryList={groceryList} removeItem={removeItem}></List>
+        < List groceryList={groceryList} removeItem={removeItem} editItem={editItem}></List>
           <button onClick={() => clearList()} className='clear-btn'>Clear Items</button> 
         </div>
       )}
