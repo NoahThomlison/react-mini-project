@@ -15,8 +15,16 @@ function App() {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    setGroceryList([...groceryList, groceryItem])
-    setGroceryItem("")
+    if(!groceryItem){
+      console.log("ding")
+      setAlert(prevState => {
+        return {...prevState, show: true};
+      })
+    }
+    else if(groceryItem){
+      setGroceryList([...groceryList, groceryItem])
+      setGroceryItem("")
+    }
   }
 
   return (
