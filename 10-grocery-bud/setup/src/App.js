@@ -45,6 +45,17 @@ function App() {
     setGroceryList([])
   }
 
+  const removeItem = (id) => {
+    setAlert({show: true, msg: "Item Removed", type: "alert-danger"})
+    const list = [...groceryList]
+    list.forEach((item) => {
+      if(item.id === id){
+        list.splice(list.indexOf(item), 1)
+      }
+    })
+    setGroceryList(list)
+  }
+
   return (
     <section className='section-center'>
       <form action="" className="grocery-form" onSubmit={submitHandler}>
@@ -57,7 +68,7 @@ function App() {
       </form>
       {groceryList.length > 0 && (
         <div className='grocery-container'>
-        < List groceryList={groceryList}></List>
+        < List groceryList={groceryList} removeItem={removeItem}></List>
           <button onClick={() => clearList()} className='clear-btn'>Clear Items</button> 
         </div>
       )}
