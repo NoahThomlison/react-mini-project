@@ -3,17 +3,24 @@ import { FaEdit, FaTrash } from 'react-icons/fa'
 const List = ({groceryList}) => {
 
   return (
-    <section>
-      {groceryList.map((item) => {
+    <div className='grocery-list'>
+      {groceryList.map((listItem) => {
+        const {id, item} = listItem
         return(
-          <section>
-            <h1>{item}</h1>
-            <FaEdit></FaEdit>
-            <FaTrash></FaTrash>
-          </section>
+          <acticle className='grocery-item' key={id}>
+            <p className='title'>{item}</p>
+            <div className='btn-container'>
+              <button className='edit-btn'>
+                <FaEdit></FaEdit>
+              </button>
+              <button className='delete-btn'>
+                <FaTrash></FaTrash>
+              </button>
+            </div>
+          </acticle>
         )
       })}
-    </section>
+    </div>
   )
 }
 
