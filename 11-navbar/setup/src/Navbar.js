@@ -7,10 +7,43 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <div class="nav-center">
-          <div class="nav-header">
-            <div class="links-container .show-container"></div>
-            <ul className='social-icons'></ul>
+        <div className="nav-center">
+          <div className="nav-header">
+            <img src={logo} alt="logo"/>
+              <button className='nav-toggle'>
+                <FaBars/>
+              </button>
+            <div className="links-container show-container"></div>
+              <ul className='links'>
+                <li>
+                  <a href="#">home</a>
+                </li>
+                <li>
+                  <a href="#">about</a>
+                </li>
+                <li>
+                  <a href="#">contact</a>
+                </li>
+                <li>
+                  <a href="#">products</a>
+                </li>
+              </ul>
+            <ul className='social-icons'>
+              <li>
+                <a href="https://www.twitter.com">
+                  <FaTwitter/>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com"></a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com"></a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com"></a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
