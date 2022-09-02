@@ -201,9 +201,9 @@ nav {
   .nav-header {
     padding: 0;
   }
-  /* .nav-toggle {
+  .nav-toggle {
     display: none;
-  } */
+  }
   .links-container {
     height: auto !important;
   }
