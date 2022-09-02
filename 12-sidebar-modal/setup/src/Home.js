@@ -3,14 +3,14 @@ import { FaBars } from 'react-icons/fa'
 
 const Home = () => {
   return (
-    <div>
+    <main>
       <button className='sidebar-toggle'>
         <FaBars></FaBars>
       </button>
       <button className='btn'>
         Show Modal
       </button>
-    </div>
+    </main>
     )
   }
 
