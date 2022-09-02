@@ -10,10 +10,7 @@ const Navbar = () => {
         <div className="nav-center">
           <div className="nav-header">
             <img src={logo} alt="logo"/>
-              <button className='nav-toggle'>
-                <FaBars/>
-              </button>
-            <div className="links-container show-container"></div>
+            <div className="links-container show-container">
               <ul className='links'>
                 <li>
                   <a href="#">home</a>
@@ -28,6 +25,7 @@ const Navbar = () => {
                   <a href="#">products</a>
                 </li>
               </ul>
+            </div>
             <ul className='social-icons'>
               <li>
                 <a href="https://www.twitter.com">
@@ -35,16 +33,20 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.twitter.com"></a>
+                <a href="https://www.twitter.com">
+                  <FaTwitter/>
+                </a>
               </li>
               <li>
-                <a href="https://www.twitter.com"></a>
-              </li>
-              <li>
-                <a href="https://www.twitter.com"></a>
+                <a href="https://www.twitter.com">
+                  <FaTwitter/>
+                </a>
               </li>
             </ul>
           </div>
+          <button className='nav-toggle'>
+            <FaBars/>
+          </button>
         </div>
       </div>
     </nav>
