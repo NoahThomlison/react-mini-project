@@ -18,7 +18,7 @@ const AppProvider = ({children}) => {
   }
 
   return(
-    <AppContext.Provider value={[modelShow, toggleSidebar, sidebarShow, toggleModel]}>
+    <AppContext.Provider value={{modelShow, toggleSidebar, sidebarShow, toggleModel}}>
       {children}
     </AppContext.Provider>
   )
