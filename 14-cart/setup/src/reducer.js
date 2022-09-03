@@ -17,7 +17,7 @@ const reducer = (state, action) => {
           return{...item, amount: item.amount - 1}
         }
         return(item)
-      })
+      }).filter((item) => item.amount >= 0)
       return{...state, cart: tempCartDecrease}    
       case "REMOVE":
       return{...state, cart: state.cart.filter((item) => action.payload !== item.id)}
