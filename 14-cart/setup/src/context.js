@@ -19,12 +19,22 @@ const AppProvider = ({ children }) => {
   const emptyCart = () => {
     dispatch({type: 'CLEAR'})
   }
-  
+
+  const increment = () => {
+    dispatch({type: 'INCREMENT'})
+  }
+
+  const decrement = () => {
+    dispatch({type: 'DECREMENT'})
+  }
+
   return (
     <AppContext.Provider
       value={{
         ...state,
-        emptyCart
+        emptyCart,
+        increment,
+        decrement
       }}
     >
       {children}

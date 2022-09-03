@@ -1,11 +1,15 @@
 const reducer = (state, action) => {
-  if (action.type = "CLEAR"){
-    return{...state, cart: []}
+  console.log(action.type)
+  switch(action.type){
+    case "CLEAR":
+      return{...state, cart: [], amount: 0}
+    case "INCREMENT":
+      return{...state, amount: state.amount + 1}
+    case "DECREMENT":
+      return{...state, amount: state.amount - 1}
+    default:
+      return state
   }
-  if (action.type = "INCREMENT"){
-    return{...state, cart: []}
-  }
-  return state
 }
 
 export default reducer
