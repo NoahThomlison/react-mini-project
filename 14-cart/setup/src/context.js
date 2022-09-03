@@ -20,12 +20,12 @@ const AppProvider = ({ children }) => {
     dispatch({type: 'CLEAR'})
   }
 
-  const increment = () => {
-    dispatch({type: 'INCREMENT'})
+  const increment = (id) => {
+    dispatch({type: 'INCREMENT', payload: id})
   }
 
-  const decrement = () => {
-    dispatch({type: 'DECREMENT'})
+  const decrement = (id) => {
+    dispatch({type: 'DECREMENT', payload: id})
   }
 
   const removeItem = (id) => {

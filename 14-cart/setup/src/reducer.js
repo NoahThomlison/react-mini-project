@@ -1,13 +1,25 @@
 const reducer = (state, action) => {
-  console.log(action.type)
+  console.log(state, action.type, action.payload)
   switch(action.type){
     case "CLEAR":
       return{...state, cart: [], amount: 0}
     case "INCREMENT":
-      return{...state, amount: state.amount + 1}
+      let tempCartIncrease = state.cart.map((item) => {
+        if(action.payload === item.id){
+          return{...item, amount: item.amount + 1}
+        }
+        return(item)
+      })
+      return{...state, cart: tempCartIncrease}
     case "DECREMENT":
-      return{...state, amount: state.amount - 1}
-    case "REMOVE":
+      let tempCartDecrease = state.cart.map((item) => {
+        if(action.payload === item.id){
+          return{...item, amount: item.amount - 1}
+        }
+        return(item)
+      })
+      return{...state, cart: tempCartDecrease}    
+      case "REMOVE":
       return{...state, cart: state.cart.filter((item) => action.payload !== item.id)}
     default:
       return state
